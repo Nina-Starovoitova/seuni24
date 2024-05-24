@@ -25,7 +25,6 @@ public abstract class AbstractObservableService implements ObservableService
     {
         _beobachterListe = new ArrayList<ServiceObserver>();
     }
-
     @Override
     public void registriereBeobachter(ServiceObserver beobachter)
     {
