@@ -25,4 +25,5 @@ import java.util.Queue;
     }
         return instance;
     }
+    public
 }

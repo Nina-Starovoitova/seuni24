@@ -9,9 +9,12 @@ class VormerkKarteQueueTest {
     void testEnQueue() {
         VormerkKarteQueue vormerkKarteQueue1 = VormerkKarteQueue.getInstance ();
         VormerkKarteQueue vormerkKarteQueue2 = VormerkKarteQueue.getInstance ();
-        assertSame(vormerkKarteQueue1,vormerkKarteQueue2); 
+        assertSame(vormerkKarteQueue1,vormerkKarteQueue2);
+        assertNotNull(vormerkKarteQueue1);
+        vormerkKarteQueue1.enqueue(_medium)
     }
     @Test
     void testDeQueue() {
     }
+
 }

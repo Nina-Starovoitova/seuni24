@@ -1,5 +1,7 @@
 package de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien;
 
+import java.util.Objects;
+
 /**
  * Eine CD ist ein Medium. Zusätzlich zu den Eigenschaften eines Mediums erfasst
  * sie Informationen zu Spiellänge und Interpret.
@@ -110,6 +112,18 @@ public class CD extends AbstractMedium implements Medium
     {
         assert spiellaenge > 0 : "Vorbedingung verletzt: spiellaenge > 0";
         _spiellaenge = spiellaenge;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CD cd)) return false;
+        return super.getTitel() == cd.getTitel() && Objects.equals(getTitel(), cd.getTitel());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitel(), getTitel());
     }
 
     @Override
