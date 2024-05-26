@@ -1,8 +1,7 @@
 package de.uni_hamburg.informatik.swt.se2.mediathek.startup;
 
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 /**
  * Diese Klasse dient dazu, zu testen, ob in Eclipse die Assertions aktiviert

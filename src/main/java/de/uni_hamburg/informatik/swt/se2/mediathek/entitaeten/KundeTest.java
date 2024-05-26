@@ -1,9 +1,6 @@
 package de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import de.uni_hamburg.informatik.swt.se2.mediathek.wertobjekte.Kundennummer;
 import de.uni_hamburg.informatik.swt.se2.mediathek.wertobjekte.PLZ;

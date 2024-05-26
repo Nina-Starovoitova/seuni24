@@ -1,8 +1,7 @@
 package de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class CDTest extends AbstractMediumTest
 {

@@ -1,14 +1,16 @@
 package de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten;
 
-import org.junit.Test;
+
 
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.CD;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.Medium;
 import de.uni_hamburg.informatik.swt.se2.mediathek.wertobjekte.Datum;
 import de.uni_hamburg.informatik.swt.se2.mediathek.wertobjekte.Geldbetrag;
 import de.uni_hamburg.informatik.swt.se2.mediathek.wertobjekte.Kundennummer;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class VerleihkarteTest
 {
