@@ -10,6 +10,7 @@ import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.PCVideospie
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Queue;
 
 
@@ -44,7 +45,7 @@ class VormerkKarte {
         return _vormerker.size() < queueLength;
     }
 
-    public void loescheVormerker() {
+    public void loescheVormerker()  {
         if (!isEmpty())
             _vormerker.poll();
     }

@@ -3,6 +3,7 @@ package de.uni_hamburg.informatik.swt.se2.mediathek.queue;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.Kunde;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.CD;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.DVD;
+import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.Medium;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.PCVideospiel;
 import de.uni_hamburg.informatik.swt.se2.mediathek.wertobjekte.Kundennummer;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,7 @@ class VormerkKarteQueueTest {
     private Kunde kunde2;
     private Kunde kunde3;
 
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -39,25 +41,51 @@ class VormerkKarteQueueTest {
 
 
         //Test enQueued no more than 3
-        CD cd= new CD( "titel",  "kommentar",  "interpret",  30);
+        CD cd = new CD("titel", "kommentar", "interpret", 30);
         VormerkKarte vormerkKarteQueue1 = new VormerkKarte(cd);
         assertEquals(vormerkKarteQueue1.getVormerker().size(), 0);
         vormerkKarteQueue1.merkeVor(kunde1);
         vormerkKarteQueue1.merkeVor(kunde2);
         vormerkKarteQueue1.merkeVor(kunde3);
-        assertEquals(vormerkKarteQueue1.getVormerker().size(),3);
+        assertEquals(vormerkKarteQueue1.getVormerker().size(), 3);
         vormerkKarteQueue1.merkeVor(kunde1);
-        assertEquals(vormerkKarteQueue1.getVormerker().size(),3);
+        assertEquals(vormerkKarteQueue1.getVormerker().size(), 3);
 
-//TODO test dequeue, test for queueable( boolean), remove the first client
+//TODO, remove the first client
 
-        DVD dvd = new DVD("titel", "kommentare","regisseur", 20);
-        VormerkKarte vormerkKarteQueue2 = new VormerkKarte (dvd);
+        DVD dvd = new DVD("titel", "kommentare", "regisseur", 20);
+        VormerkKarte vormerkKarteQueue2 = new VormerkKarte(dvd);
         vormerkKarteQueue1.merkeVor(kunde1);
         vormerkKarteQueue1.merkeVor(kunde2);
         vormerkKarteQueue1.merkeVor(kunde3);
-        assertEquals(vormerkKarteQueue1.getVormerker().size(),3);
+        assertEquals(vormerkKarteQueue1.getVormerker().size(), 3);
 
     }
+
+    @Test
+    void testLoescheVormerker() {
+        CD cd = new CD("titel", "kommentar", "interptet", 30);
+        VormerkKarte vormerkKarteQueue1 = new VormerkKarte(cd);
+        assertEquals(vormerkKarteQueue1.getVormerker().size(), 0);
+        vormerkKarteQueue1.merkeVor(kunde1);
+        vormerkKarteQueue1.merkeVor(kunde2);
+        vormerkKarteQueue1.merkeVor(kunde3);
+        vormerkKarteQueue1.loescheVormerker();
+        assertEquals(2, vormerkKarteQueue1.getVormerker().size());
+
+    }
+
+    @Test
+    void testIstVormerkeMoeglich() {
+        CD cd = new CD("titel", "kommentar", "interptet", 30);
+        VormerkKarte vormerkKarteQueue1 = new VormerkKarte(cd);
+        assertEquals(vormerkKarteQueue1.getVormerker().size(), 0);
+        assertTrue(vormerkKarteQueue1.istVormerkeMoeglich());
+        vormerkKarteQueue1.merkeVor(kunde1);
+        vormerkKarteQueue1.merkeVor(kunde2);
+        vormerkKarteQueue1.merkeVor(kunde3);
+        assertFalse(vormerkKarteQueue1.istVormerkeMoeglich());
+    }
+
 
 }
